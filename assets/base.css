@@ -1,0 +1,43 @@
+:root {
+  --background: #fff;
+  --foreground: #000;
+
+  --text-primary: #000;
+  --text-secondary: #fff;
+
+  --accents-1: #fafafa;
+  --accents-2: #eaeaea;
+  --accents-3: #999;
+  --accents-4: #888;
+  --accents-5: #666;
+  --accents-6: #444;
+  --accents-7: #333;
+  --accents-8: #262626;
+  --accents-9: #111;
+
+  --shadow-minimalistic: inset 0 -1px var(--accents-2);
+  --shadow-smallest: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+
+  --shadow-1: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
+}
+
+.dark {
+  --background: #000;
+  --foreground: #fff;
+
+  --shadow-minimalistic: inset 0 -1px var(--accents-7);
+  --shadow-smallest: 0 0 0 1px var(--accents-7);
+  --shadow-small: 0 0 0 1px var(--accents-7);
+  --shadow-medium: 0 0 0 1px var(--accents-7);
+  --shadow-large: 0 0 0 1px var(--accents-7);
+
+  --shadow-1: 0 0px 20px -6px rgba(0, 0, 0, 0.7);
+}
+
+.bg-white,
+.dark\:bg-black {
+  transition: 0.5s;
+}

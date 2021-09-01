@@ -1,0 +1,17 @@
+{
+  "title": "Home",
+  "titleTemplate": "%s | Jamie Isaksen",
+  "defaultTitle": "Jamie Isaksen",
+  "description": "Jamie Isaksen is a full-stack web developer.",
+  "openGraph": {
+    "type": "website",
+    "locale": "en",
+    "url": "https://jamie-isaksen.vercel.app",
+    "site_name": "Jamie Isaksen"
+  },
+  "twitter": {
+    "handle": "@jamieisaksen",
+    "site": "@jamieisaksen",
+    "cardType": "summary_large_image"
+  }
+}
