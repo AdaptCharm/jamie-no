@@ -14,7 +14,7 @@ const Footer: FC = () => {
         <div className="flex flex-col items-center">
           <p className="text-black dark:text-white">
             &copy; {new Date().getFullYear()} Jamie Isaksen. Get in touch at
-            jamie@jamie.no.
+            <a href="mailto:jamie@jamie.no?subject=Inquiry">jamie@jamie.no</a>.
           </p>
         </div>
       </div>
