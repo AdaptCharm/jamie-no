@@ -3,7 +3,7 @@ import { FC } from 'react'
 const Footer: FC = () => {
   return (
     <footer
-      className="bg-white bg-opacity-90 dark:bg-black dark:bg-opacity-80 transition ease-default fixed bottom-0 left-0 right-0"
+      className="transition ease-default fixed bottom-0 left-0 right-0"
       style={{
         backdropFilter: 'saturate(180%) blur(5px)',
         transitionDuration: '500ms',

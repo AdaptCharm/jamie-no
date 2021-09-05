@@ -32,7 +32,7 @@ const Navbar: FC = () => {
 
   return (
     <Popover
-      className="bg-white bg-opacity-90 dark:bg-black dark:bg-opacity-80 transition ease-default fixed inset-x-0 z-50"
+      className="transition ease-default fixed inset-x-0 z-50"
       style={{
         backdropFilter: 'saturate(180%) blur(5px)',
         transitionDuration: '500ms',
@@ -108,7 +108,7 @@ const Navbar: FC = () => {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <span className="text-black dark:text-white">
-                            Jamie Isaksen
+                            Menu
                           </span>
                         </div>
                         <div className="flex items-center">
