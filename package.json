@@ -23,8 +23,7 @@
     "postcss": "^8.3.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-popper": "^2.2.5",
-    "react-tippy": "^1.4.0"
+    "react-popper": "^2.2.5"
   },
   "prettier": {
     "singleQuote": true,
@@ -35,6 +34,7 @@
     "@types/classnames": "^2.3.1",
     "@types/mousetrap": "^1.6.8",
     "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
     "husky": "^7.0.2",
     "next-unused": "^0.0.6",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -64,6 +64,9 @@
       ],
       "@components/*": [
         "components/*"
+      ],
+      "@lib/*": [
+        "lib/*"
       ]
     },
     "debug": true,

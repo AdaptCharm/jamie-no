@@ -4,7 +4,7 @@ import cn from 'classnames'
 import { useTheme } from 'next-themes'
 import Mousetrap from 'mousetrap'
 
-import { Tooltip } from 'react-tippy'
+import { Tooltip } from '@components/ui'
 import { SunIcon, MoonIcon } from '@heroicons/react/outline'
 
 interface Props {
@@ -55,12 +55,7 @@ const ThemeWidget: FC<Props> = ({ className }) => {
   return (
     <>
       <Tooltip
-        title={theme === 'light' ? 'Activate dark mode' : 'Activate light mode'}
-        position="bottom"
-        size="small"
-        animation="scale"
-        duration={10}
-        style={{ display: 'inline-flex' }}
+        text={theme === 'light' ? 'Activate dark mode' : 'Activate light mode'}
       >
         <button
           className={cn(

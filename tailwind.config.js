@@ -8,6 +8,7 @@ module.exports = {
     content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   },
   darkMode: 'class',
+  mode: 'jit',
   theme: {
     extend: {
       colors: {

@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Link from 'next/link'
 
 const Footer: FC = () => {
   return (
@@ -13,8 +14,13 @@ const Footer: FC = () => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
           <p className="text-black dark:text-white">
-            &copy; {new Date().getFullYear()} Jamie Isaksen. Get in touch at
-            <a href="mailto:jamie@jamie.no?subject=Inquiry">jamie@jamie.no</a>.
+            &copy; {new Date().getFullYear()} Jamie Isaksen. Get in touch at{' '}
+            <Link href="mailto:jamie@jamie.no?subject=Inquiry">
+              <a className="font-bold text-[#36dfce] hover:underline">
+                jamie@jamie.no
+              </a>
+            </Link>
+            .
           </p>
         </div>
       </div>

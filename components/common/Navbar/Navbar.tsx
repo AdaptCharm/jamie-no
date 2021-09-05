@@ -5,7 +5,8 @@ import Mousetrap from 'mousetrap'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
-import { Tooltip } from 'react-tippy'
+//import { Tooltip } from 'react-tippy'
+import { Tooltip } from '@components/ui'
 import { ThemeWidget } from '@components/common'
 
 const shortcuts = [
@@ -50,14 +51,7 @@ const Navbar: FC = () => {
               <div className="col-start-2 col-end-auto flex items-center justify-end h-full">
                 <div className="flex flex-row-reverse md:flex-row items-center gap-x-2">
                   <div className="relative">
-                    <Tooltip
-                      title="Show menu"
-                      position="bottom"
-                      size="small"
-                      animation="scale"
-                      duration={10}
-                      style={{ display: 'inline-flex' }}
-                    >
+                    <Tooltip text="Show menu">
                       <Popover.Button
                         className="flex items-center justify-center bg-transparent rounded-lg w-10 h-10 border-none transition ease-default duration-400 text-gray-700 hover:p-2 hover:bg-link hover:shadow-small focus:outline-none focus:ring-transparent"
                         ref={showRef}

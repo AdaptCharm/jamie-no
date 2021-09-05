@@ -45,3 +45,7 @@
 ::selection {
   background-color: #00ffff;
 }
+
+a {
+  text-decoration: underline;
+}
