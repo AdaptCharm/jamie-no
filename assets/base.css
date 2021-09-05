@@ -41,3 +41,7 @@
 .dark\:bg-black {
   transition: 0.5s;
 }
+
+::selection {
+  background-color: #00ffff;
+}
