@@ -13,9 +13,8 @@
   "dependencies": {
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
-    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.3",
-    "framer-motion": "^4.1.17",
+    "clsx": "^1.1.1",
     "mousetrap": "^1.6.5",
     "next": "^11.1.2",
     "next-seo": "^4.26.0",
@@ -31,7 +30,6 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^11.1.2",
-    "@types/classnames": "^2.3.1",
     "@types/mousetrap": "^1.6.8",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",

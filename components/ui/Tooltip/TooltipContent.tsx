@@ -16,7 +16,7 @@ import {
 } from './TooltipPlacement'
 import { useResize, useClickAnywhere, usePortal } from '@lib/hooks'
 import { Transition } from '@components/ui'
-import cn from 'classnames'
+import cn from 'clsx'
 
 interface Props {
   className?: string

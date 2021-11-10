@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, memo } from 'react'
-import cn from 'classnames'
+import cn from 'clsx'
 import { withDefaults } from '@lib/collections'
 
 interface Props {

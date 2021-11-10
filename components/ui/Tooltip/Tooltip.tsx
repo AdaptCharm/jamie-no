@@ -10,7 +10,7 @@ import TooltipContent from './TooltipContent'
 import { useClickAway } from '@lib/hooks'
 import { withDefaults } from '@lib/collections'
 import { PlacementTypes, TriggerTypes, SizeTypes } from '@lib/prop-types'
-import cn from 'classnames'
+import cn from 'clsx'
 
 export type TooltipOnVisibleChange = (visible: boolean) => void
 

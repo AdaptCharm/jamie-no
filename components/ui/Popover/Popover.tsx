@@ -3,7 +3,7 @@ import Tooltip, { TooltipProps } from '@components/ui/Tooltip'
 import PopoverItem from './PopoverItem'
 import { PlacementTypes, TriggerTypes, SizeTypes } from '@lib/prop-types'
 import { getReactNode } from '@lib/collections'
-import cn from 'classnames'
+import cn from 'clsx'
 
 interface Props {
   content?: ReactNode | (() => ReactNode)
