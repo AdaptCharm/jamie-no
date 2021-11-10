@@ -2,14 +2,7 @@ import { FC } from 'react'
 
 const Footer: FC = () => {
   return (
-    <footer
-      className="transition ease-default fixed bottom-0 left-0 right-0"
-      style={{
-        backdropFilter: 'saturate(180%) blur(5px)',
-        transitionDuration: '500ms',
-        transitionProperty: 'background-color',
-      }}
-    >
+    <footer className="relative">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
           <p className="text-black dark:text-white">
