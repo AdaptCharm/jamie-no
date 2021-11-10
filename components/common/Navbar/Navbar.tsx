@@ -5,7 +5,6 @@ import Mousetrap from 'mousetrap'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
-//import { Tooltip } from 'react-tippy'
 import { Tooltip } from '@components/ui'
 import { ThemeWidget } from '@components/common'
 
@@ -42,11 +41,7 @@ const Navbar: FC = () => {
     >
       {({ open }) => (
         <>
-          <div
-            className="h-20 sm:h-30 focus:outline-none"
-            ref={hideRef}
-            tabIndex={-1}
-          >
+          <div className="h-20 focus:outline-none" ref={hideRef} tabIndex={-1}>
             <div className="grid grid-cols-navbar grid-flow-row grid-rows-none gap-5 h-full">
               <div className="col-start-2 col-end-auto flex items-center justify-end h-full">
                 <div className="flex flex-row-reverse md:flex-row items-center gap-x-2">
