@@ -1,4 +1,12 @@
-import React, { ReactNode } from 'react'
+import {
+  ReactNode,
+  ElementType,
+  Children,
+  isValidElement,
+  ReactElement,
+  cloneElement,
+  ComponentType,
+} from 'react'
 
 export const getId = () => {
   return Math.random().toString(32).slice(2, 10)
@@ -13,10 +21,10 @@ export const capitalize = (
 
 export const hasChild = (
   children: ReactNode | undefined,
-  child: React.ElementType
+  child: ElementType
 ): boolean => {
-  const types = React.Children.map(children, (item) => {
-    if (!React.isValidElement(item)) return null
+  const types = Children.map(children, (item) => {
+    if (!isValidElement(item)) return null
     return item.type
   })
 
@@ -25,11 +33,11 @@ export const hasChild = (
 
 export const pickChild = (
   children: ReactNode | undefined,
-  targetChild: React.ElementType
+  targetChild: ElementType
 ): [ReactNode | undefined, ReactNode | undefined] => {
   let target: ReactNode[] = []
-  const withoutTargetChildren = React.Children.map(children, (item) => {
-    if (!React.isValidElement(item)) return item
+  const withoutTargetChildren = Children.map(children, (item) => {
+    if (!isValidElement(item)) return item
     if (item.type === targetChild) {
       target.push(item)
       return null
@@ -49,8 +57,8 @@ export const pickChildByProps = (
 ): [ReactNode | undefined, ReactNode | undefined] => {
   let target: ReactNode[] = []
   const isArray = Array.isArray(value)
-  const withoutPropChildren = React.Children.map(children, (item) => {
-    if (!React.isValidElement(item)) return null
+  const withoutPropChildren = Children.map(children, (item) => {
+    if (!isValidElement(item)) return null
     if (!item.props) return item
     if (isArray) {
       if (value.includes(item.props[key])) {
@@ -74,21 +82,20 @@ export const pickChildByProps = (
 export const pickChildrenFirst = (
   children: ReactNode | undefined
 ): ReactNode | undefined => {
-  return React.Children.toArray(children)[0]
+  return Children.toArray(children)[0]
 }
 
 export const setChildrenProps = (
   children: ReactNode | undefined,
   props: Record<string, unknown>,
-  targetComponents: Array<React.ElementType> = []
+  targetComponents: Array<ElementType> = []
 ): ReactNode | undefined => {
-  if (React.Children.count(children) === 0) return []
+  if (Children.count(children) === 0) return []
   const allowAll = targetComponents.length === 0
-  const clone = (child: React.ReactElement, props = {}) =>
-    React.cloneElement(child, props)
+  const clone = (child: ReactElement, props = {}) => cloneElement(child, props)
 
-  return React.Children.map(children, (item) => {
-    if (!React.isValidElement(item)) return item
+  return Children.map(children, (item) => {
+    if (!isValidElement(item)) return item
     if (allowAll) return clone(item, props)
 
     const isAllowed = targetComponents.find((child) => child === item.type)
@@ -99,16 +106,15 @@ export const setChildrenProps = (
 
 export const setChildrenIndex = (
   children: ReactNode | undefined,
-  targetComponents: Array<React.ElementType> = []
+  targetComponents: Array<ElementType> = []
 ): ReactNode | undefined => {
-  if (React.Children.count(children) === 0) return []
+  if (Children.count(children) === 0) return []
   const allowAll = targetComponents.length === 0
-  const clone = (child: React.ReactElement, props = {}) =>
-    React.cloneElement(child, props)
+  const clone = (child: ReactElement, props = {}) => cloneElement(child, props)
   let index = 0
 
-  return React.Children.map(children, (item) => {
-    if (!React.isValidElement(item)) return item
+  return Children.map(children, (item) => {
+    if (!isValidElement(item)) return item
     index = index + 1
     if (allowAll) return clone(item, { index })
 
@@ -120,12 +126,12 @@ export const setChildrenIndex = (
 }
 
 export const getReactNode = (
-  node?: React.ReactNode | (() => React.ReactNode)
-): React.ReactNode => {
+  node?: ReactNode | (() => ReactNode)
+): ReactNode => {
   if (!node) return null
 
   if (typeof node !== 'function') return node
-  return (node as () => React.ReactNode)()
+  return (node as () => ReactNode)()
 }
 
 export const isChildElement = (
@@ -142,10 +148,10 @@ export const isChildElement = (
 }
 
 export const withDefaults = <P, DP>(
-  component: React.ComponentType<P>,
+  component: ComponentType<P>,
   defaultProps: DP
 ) => {
   type Props = Partial<DP> & Omit<P, keyof DP>
   component.defaultProps = defaultProps
-  return component as React.ComponentType<Props>
+  return component as ComponentType<Props>
 }
