@@ -1,4 +1,11 @@
-import { FC, HTMLAttributes, useRef, useState, useEffect } from 'react'
+import {
+  FC,
+  HTMLAttributes,
+  ReactNode,
+  useRef,
+  useState,
+  useEffect,
+} from 'react'
 import TooltipContent from './TooltipContent'
 import { useClickAway } from '@lib/hooks'
 import { withDefaults } from '@lib/collections'
@@ -10,7 +17,7 @@ export type TooltipOnVisibleChange = (visible: boolean) => void
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   className?: string
   portalClassName?: string
-  text?: string | React.ReactNode
+  text?: string | ReactNode
   trigger?: TriggerTypes
   placement?: PlacementTypes
   size?: SizeTypes
@@ -19,7 +26,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   offset?: number
   onVisibleChange?: TooltipOnVisibleChange
   disabled?: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const defaultProps = {
@@ -34,7 +41,7 @@ const defaultProps = {
   disabled: false,
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
+type NativeAttrs = Omit<HTMLAttributes<any>, keyof Props>
 export type TooltipProps = Props & typeof defaultProps & NativeAttrs
 
 const Tooltip: FC<TooltipProps> = ({

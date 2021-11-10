@@ -1,4 +1,12 @@
-import { FC, MutableRefObject, useRef, useState, useEffect } from 'react'
+import {
+  FC,
+  MutableRefObject,
+  ReactNode,
+  useRef,
+  useState,
+  useEffect,
+  MouseEvent,
+} from 'react'
 import { createPortal } from 'react-dom'
 import { PlacementTypes, SizeTypes } from '@lib/prop-types'
 import {
@@ -17,7 +25,7 @@ interface Props {
   size: SizeTypes
   visible: boolean
   offset: number
-  children: React.ReactNode
+  children: ReactNode
 }
 
 interface ReactiveDomReact {
@@ -80,7 +88,7 @@ const TooltipContent: FC<Props> = ({
     updateRect()
   }, [visible])
 
-  const preventHandler = (event: React.MouseEvent<HTMLDivElement>) => {
+  const preventHandler = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation()
     event.nativeEvent.stopImmediatePropagation()
   }
