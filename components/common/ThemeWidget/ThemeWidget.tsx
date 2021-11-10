@@ -59,7 +59,7 @@ const ThemeWidget: FC<Props> = ({ className }) => {
       >
         <button
           className={cn(
-            'flex items-center justify-center bg-transparent rounded-md w-10 h-10 border-none transition ease-default duration-400 text-gray-700 hover:p-2 hover:shadow-small focus:outline-none focus:ring-transparent',
+            'flex items-center justify-center bg-transparent rounded-md w-10 h-10 border-none transition ease-[ease] duration-[400ms] text-gray-700 hover:p-2 hover:shadow-small focus:outline-none focus:ring-transparent',
             className
           )}
           onClick={() => {

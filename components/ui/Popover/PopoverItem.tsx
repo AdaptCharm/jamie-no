@@ -25,9 +25,8 @@ const PopoverItem: FC<PopoverItemProps> = memo(
       <>
         <div
           className={cn(
-            '',
             {
-              'transition-colors ease-default duration-100 ': title || item,
+              'transition-colors ease-[ease] duration-100 ': title || item,
               'px-5 py-2 text-black dark:text-white': title,
               'my-2 border-t-[1px] border-accents-2 dark:border-accents-8':
                 line,

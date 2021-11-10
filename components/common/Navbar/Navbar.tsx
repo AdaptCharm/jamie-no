@@ -32,7 +32,7 @@ const Navbar: FC = () => {
 
   return (
     <Popover
-      className="transition ease-default fixed inset-x-0 z-50"
+      className="transition ease-[ease] fixed inset-x-0 z-50"
       style={{
         backdropFilter: 'saturate(180%) blur(5px)',
         transitionDuration: '500ms',
@@ -42,13 +42,13 @@ const Navbar: FC = () => {
       {({ open }) => (
         <>
           <div className="h-20 focus:outline-none" ref={hideRef} tabIndex={-1}>
-            <div className="grid grid-cols-navbar grid-flow-row grid-rows-none gap-5 h-full">
+            <div className="grid grid-cols-[1fr,minmax(auto,880px),1fr] grid-flow-row grid-rows-none gap-5 h-full">
               <div className="col-start-2 col-end-auto flex items-center justify-end h-full">
                 <div className="flex flex-row-reverse md:flex-row items-center gap-x-2">
                   <div className="relative">
                     <Tooltip text="Show menu">
                       <Popover.Button
-                        className="flex items-center justify-center bg-transparent rounded-lg w-10 h-10 border-none transition ease-default duration-400 text-gray-700 hover:p-2 hover:bg-link hover:shadow-small focus:outline-none focus:ring-transparent"
+                        className="flex items-center justify-center bg-transparent rounded-lg w-10 h-10 border-none transition ease-[ease] duration-[400ms] text-gray-700 hover:p-2 hover:bg-link hover:shadow-small focus:outline-none focus:ring-transparent"
                         ref={showRef}
                       >
                         <span className="sr-only">Open menu</span>
@@ -73,10 +73,10 @@ const Navbar: FC = () => {
               <div className="relative sm:flex sm:items-center sm:justify-center sm:content-center min-h-full p-2">
                 <Transition.Child
                   as={Fragment}
-                  enter="ease-out duration-400 lg:duration-300"
+                  enter="ease-out duration-[400ms] lg:duration-300"
                   enterFrom="opacity-0"
                   enterTo="opacity-100"
-                  leave="ease-in duration-400 lg:duration-300"
+                  leave="ease-in duration-[400ms] lg:duration-300"
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
@@ -85,14 +85,14 @@ const Navbar: FC = () => {
 
                 <Transition.Child
                   as={Fragment}
-                  enter="ease-out duration-200 lg:duration-250"
+                  enter="ease-out duration-200 lg:duration-[250ms]"
                   enterFrom="opacity-0 -translate-1/2 scale-0"
                   enterTo="opacity-100 translate-0 scale-100"
-                  leave="ease-in duration-200 lg:duration-250"
+                  leave="ease-in duration-200 lg:duration-[250ms]"
                   leaveFrom="opacity-100 translate-0 scale-100"
                   leaveTo="opacity-0 -translate-1/2 scale-0"
                 >
-                  <div className="relative sm:top-60 sm:w-150 transform transition-all rounded-2xl shadow-1 bg-white dark:bg-gray-900 overflow-hidden">
+                  <div className="relative sm:top-60 sm:w-[37.5rem] transform transition-all rounded-2xl shadow-1 bg-white dark:bg-gray-900 overflow-hidden">
                     <div className="pt-5 pb-6 px-5">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
@@ -102,7 +102,7 @@ const Navbar: FC = () => {
                         </div>
                         <div className="flex items-center">
                           <div className="relative">
-                            <Popover.Button className="flex items-center justify-center bg-transparent rounded-md w-10 h-10 border-none transition ease-default duration-400 text-black dark:text-white hover:opacity-60 hover:p-2 hover:shadow-small focus:outline-none">
+                            <Popover.Button className="flex items-center justify-center bg-transparent rounded-md w-10 h-10 border-none transition ease-[ease] duration-[400ms] text-black dark:text-white hover:opacity-60 hover:p-2 hover:shadow-small focus:outline-none">
                               <span className="sr-only">Close menu</span>
                               <XIcon className="w-6 h-6" aria-hidden="true" />
                             </Popover.Button>
@@ -111,12 +111,12 @@ const Navbar: FC = () => {
                       </div>
                     </div>
                     <div>
-                      <li className="pl-6 h-8 flex items-center justify-between transition ease-default bg-black bg-opacity-5 dark:bg-black dark:bg-opacity-20 text-sm text-gray-900 text-opacity-60 dark:text-gray-100 dark:text-opacity-60">
+                      <li className="pl-6 h-8 flex items-center justify-between transition ease-[ease] bg-black bg-opacity-5 dark:bg-black dark:bg-opacity-20 text-sm text-gray-900 text-opacity-60 dark:text-gray-100 dark:text-opacity-60">
                         Shortcuts
                       </li>
                       {shortcuts.map((shortcut) => (
                         <li
-                          className="p-6 h-16 flex items-center justify-between transition ease-default hover:bg-black hover:bg-opacity-5 dark:hover:bg-opacity-20 text-gray-900 dark:text-gray-100 dark:text-opacity-60"
+                          className="p-6 h-16 flex items-center justify-between transition ease-[ease] hover:bg-black hover:bg-opacity-5 dark:hover:bg-opacity-20 text-gray-900 dark:text-gray-100 dark:text-opacity-60"
                           key={shortcut.name}
                         >
                           <span>{shortcut.name}</span>

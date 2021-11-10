@@ -1,14 +1,9 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  future: {
-    purgeLayersByDefault: true,
-  },
-  purge: {
-    content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
-  },
-  darkMode: 'class',
   mode: 'jit',
+  purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -29,20 +24,6 @@ module.exports = {
         primary: 'var(--text-primary)',
         secondary: 'var(--text-secondary)',
       },
-      spacing: {
-        30: '7.5rem',
-        150: '37.5rem',
-      },
-      inset: {
-        '1/5': '20%',
-      },
-      transitionTimingFunction: {
-        default: 'ease',
-      },
-      transitionDuration: {
-        250: '250ms',
-        400: '400ms',
-      },
       boxShadow: {
         minimalistic: 'var(--shadow-minimalistic)',
         smallest: 'var(--shadow-smallest)',
@@ -50,9 +31,6 @@ module.exports = {
         medium: 'var(--shadow-medium)',
         large: 'var(--shadow-large)',
         1: 'var(--shadow-1)',
-      },
-      gridTemplateColumns: {
-        navbar: '1fr minmax(auto, 880px) 1fr',
       },
     },
   },
