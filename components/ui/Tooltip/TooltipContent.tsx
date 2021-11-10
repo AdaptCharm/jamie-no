@@ -6,6 +6,7 @@ import {
   useState,
   useEffect,
   MouseEvent,
+  useCallback,
 } from 'react'
 import { createPortal } from 'react-dom'
 import { PlacementTypes, SizeTypes } from '@lib/prop-types'
@@ -74,19 +75,19 @@ const TooltipContent: FC<Props> = ({
   const el = usePortal('tooltip')
   const selfRef = useRef<HTMLDivElement>(null)
   const [rect, setRect] = useState<TooltipPosition>(defaultTooltipPosition)
-  if (!parent) return null
 
-  const updateRect = () => {
+  const updateRect = useCallback(() => {
+    if (!parent) return null
     const position = getPosition(placement, getRect(parent), offset)
     setRect(position)
-  }
-
-  useResize(updateRect)
-  useClickAnywhere(() => updateRect())
+  }, [offset, parent, placement])
 
   useEffect(() => {
     updateRect()
-  }, [visible])
+  }, [updateRect, visible])
+
+  useResize(updateRect)
+  useClickAnywhere(() => updateRect())
 
   const preventHandler = (event: MouseEvent<HTMLDivElement>) => {
     event.stopPropagation()

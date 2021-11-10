@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
   useEffect,
+  useCallback,
 } from 'react'
 import TooltipContent from './TooltipContent'
 import { useClickAway } from '@lib/hooks'
@@ -70,19 +71,22 @@ const Tooltip: FC<TooltipProps> = ({
     className: portalClassName,
   }
 
-  const changeVisible = (nextState: boolean) => {
-    const handler = (nextState: boolean) => {
-      setVisible(nextState)
-      onVisibleChange(nextState)
-    }
+  const changeVisible = useCallback(
+    (nextState: boolean) => {
+      const handler = (nextState: boolean) => {
+        setVisible(nextState)
+        onVisibleChange(nextState)
+      }
 
-    if (nextState) {
-      handler(true)
-      return
-    }
+      if (nextState) {
+        handler(true)
+        return
+      }
 
-    handler(false)
-  }
+      handler(false)
+    },
+    [onVisibleChange]
+  )
 
   const mouseEventHandler = (next: boolean) =>
     trigger === 'hover' && changeVisible(next)
@@ -93,7 +97,7 @@ const Tooltip: FC<TooltipProps> = ({
   useEffect(() => {
     if (customVisible === undefined) return
     changeVisible(customVisible)
-  }, [customVisible])
+  }, [changeVisible, customVisible])
 
   return (
     <div

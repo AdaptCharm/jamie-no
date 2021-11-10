@@ -2,6 +2,7 @@ import {
   Dispatch,
   RefObject,
   SetStateAction,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -37,20 +38,19 @@ export const useBodyScroll = (
   elementRef?: RefObject<HTMLElement> | null,
   options?: BodyScrollOptions
 ): [boolean, Dispatch<SetStateAction<boolean>>] => {
-  /* istanbul ignore next */
-  if (typeof document === 'undefined') return [false, (t) => t]
-  const elRef = elementRef || useRef<HTMLElement>(document.body)
   const [hidden, setHidden] = useState<boolean>(false)
+  const documentBody = useRef<HTMLElement>(document.body)
+  const elRef = elementRef || documentBody
   const safeOptions = {
     ...defaultOptions,
     ...(options || {}),
   }
 
   // don't prevent touch event when layer contain scroll
-  const isIosWithCustom = () => {
+  const isIosWithCustom = useCallback(() => {
     if (safeOptions.scrollLayer) return false
     return isIos()
-  }
+  }, [safeOptions.scrollLayer])
 
   useEffect(() => {
     if (!elRef || !elRef.current) return
@@ -77,7 +77,9 @@ export const useBodyScroll = (
       document.removeEventListener('touchmove', touchHandler)
     }
     elementStack.delete(elRef.current)
-  }, [hidden, elRef])
+  }, [hidden, elRef, isIosWithCustom])
+
+  if (typeof document === 'undefined') return [false, (t) => t]
 
   return [hidden, setHidden]
 }
