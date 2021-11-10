@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react'
-import cn from 'classnames'
+import cn from 'clsx'
 
 import { useTheme } from 'next-themes'
 import Mousetrap from 'mousetrap'
