@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import { FC, ReactNode, useMemo } from 'react'
 import Tooltip, { TooltipProps } from '@components/ui/Tooltip'
 import PopoverItem from './PopoverItem'
 import { PlacementTypes, TriggerTypes, SizeTypes } from '@lib/prop-types'
@@ -6,11 +6,11 @@ import { getReactNode } from '@lib/collections'
 import cn from 'classnames'
 
 interface Props {
-  content?: React.ReactNode | (() => React.ReactNode)
+  content?: ReactNode | (() => ReactNode)
   trigger?: TriggerTypes
   placement?: PlacementTypes
   size?: SizeTypes
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const defaultProps = {
@@ -54,7 +54,7 @@ const Popover: FC<PopoverProps> = ({
   )
 }
 
-type PopoverComponent<P = {}> = React.FC<P> & {
+type PopoverComponent<P = {}> = FC<P> & {
   Item: typeof PopoverItem
   Option: typeof PopoverItem
 }

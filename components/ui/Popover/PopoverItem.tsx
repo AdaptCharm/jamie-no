@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes, memo } from 'react'
 import cn from 'classnames'
 import { withDefaults } from '@lib/collections'
 
@@ -16,10 +16,10 @@ const defaultProps = {
   className: '',
 }
 
-type NativeAttrs = Omit<React.HTMLAttributes<any>, keyof Props>
+type NativeAttrs = Omit<HTMLAttributes<any>, keyof Props>
 export type PopoverItemProps = Props & typeof defaultProps & NativeAttrs
 
-const PopoverItem: FC<PopoverItemProps> = React.memo(
+const PopoverItem: FC<PopoverItemProps> = memo(
   ({ line, title, item, className, children, ...props }) => {
     return (
       <>
