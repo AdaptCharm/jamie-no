@@ -1,9 +1,16 @@
-import React, { FC, useEffect, useState } from 'react'
+import {
+  FC,
+  ReactNode,
+  useEffect,
+  useState,
+  isValidElement,
+  cloneElement,
+} from 'react'
 
 interface Props {
   className?: string
   visible?: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const Transition: FC<Props> = ({
@@ -24,9 +31,9 @@ const Transition: FC<Props> = ({
     }
   }, [visible, active])
 
-  if (!React.isValidElement(children) || !active) return null
+  if (!isValidElement(children) || !active) return null
 
-  return React.cloneElement(children, {
+  return cloneElement(children, {
     ...props,
     className: `${children.props.className} ${className}`,
   })
