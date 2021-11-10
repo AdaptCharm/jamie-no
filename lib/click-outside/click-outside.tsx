@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, MouseEvent } from 'react'
+import { useRef, useEffect, MouseEvent, cloneElement } from 'react'
 import hasParent from './has-parent'
 
 interface ClickOutsideProps {
@@ -7,7 +7,11 @@ interface ClickOutsideProps {
   children: any
 }
 
-const ClickOutside = ({ active = true, onClick, children }: ClickOutsideProps) => {
+const ClickOutside = ({
+  active = true,
+  onClick,
+  children,
+}: ClickOutsideProps) => {
   const innerRef = useRef()
 
   const handleClick = (event: any) => {
@@ -32,7 +36,7 @@ const ClickOutside = ({ active = true, onClick, children }: ClickOutsideProps) =
     }
   })
 
-  return React.cloneElement(children, { ref: innerRef })
+  return cloneElement(children, { ref: innerRef })
 }
 
 export default ClickOutside
