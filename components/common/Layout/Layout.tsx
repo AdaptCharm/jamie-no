@@ -14,7 +14,7 @@ const Layout: FC = ({ children }) => {
     <div className="focus:outline-none" ref={content} tabIndex={-1}>
       <Navbar />
       <main>
-        <div className="pt-20">{children}</div>
+        <div className="pt-20 min-h-[90vh]">{children}</div>
       </main>
       <Footer />
     </div>
