@@ -9,7 +9,7 @@ const Footer: FC = () => {
             &copy; {new Date().getFullYear()} Jamie Isaksen. Get in touch at{' '}
             <a
               href="mailto:jamie@jamie.no?subject=Inquiry"
-              className="font-bold text-[#36dfce] hover:underline"
+              className="font-bold text-[#f81ce5] hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
