@@ -12,9 +12,6 @@ export default function Home() {
             <h2 className="text-6xl md:text-8xl tracking-wide font-bold text-black dark:text-white">
               Full stack developer based in Norway.
             </h2>
-            <h2 className="my-28 text-6xl md:text-8xl tracking-wide font-bold text-black dark:text-white">
-              CEO at the car rental company, Innov.
-            </h2>
           </div>
         </div>
       </div>
