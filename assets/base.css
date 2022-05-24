@@ -1,6 +1,8 @@
 :root {
   --background: #fff;
   --foreground: #000;
+  
+  --selection: #79ffe1;
 
   --text-primary: #000;
   --text-secondary: #fff;
@@ -27,6 +29,8 @@
 .dark {
   --background: #000;
   --foreground: #fff;
+  
+  --selection: #f81ce5;
 
   --shadow-minimalistic: inset 0 -1px var(--accents-7);
   --shadow-smallest: 0 0 0 1px var(--accents-7);
@@ -43,7 +47,7 @@
 }
 
 ::selection {
-  background-color: #00ffff;
+  background-color: var(--selection);
 }
 
 a {
